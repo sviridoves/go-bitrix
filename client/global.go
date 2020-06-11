@@ -49,4 +49,3 @@ func (c *Client) Profile(data interface{}) (*types.Response, error) {
 	}
 	return resp.Result().(*types.Response), err
 }
-

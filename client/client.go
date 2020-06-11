@@ -1,32 +1,32 @@
 package client
 
 import (
+	"crypto/tls"
+	"fmt"
+	"github.com/appscode/go-querystring/query"
+	"github.com/asaskevich/govalidator"
+	"github.com/nightwriter/go-bitrix/types"
+	"github.com/pkg/errors"
 	"gopkg.in/resty.v1"
 	"net/url"
-	"github.com/pkg/errors"
-	"fmt"
 	"os"
-	"github.com/asaskevich/govalidator"
 	"strconv"
-	"crypto/tls"
-	"github.com/appscode/go-querystring/query"
-	"github.com/ikarpovich/go-bitrix/types"
 )
 
 type Client struct {
-	client *resty.Client
-	oAuth *OAuthData
+	client      *resty.Client
+	oAuth       *OAuthData
 	webhookAuth *WebhookAuthData
-	Url *url.URL
+	Url         *url.URL
 }
 
 type OAuthData struct {
-	AuthToken string `valid:"alphanum,required"`
+	AuthToken    string `valid:"alphanum,required"`
 	RefreshToken string `valid:"alphanum,required"`
 }
 
 type WebhookAuthData struct {
-	UserID int `valid:"required"`
+	UserID int    `valid:"required"`
 	Secret string `valid:"alphanum,required"`
 }
 
@@ -53,7 +53,7 @@ func NewClientWithOAuth(intranetUrl, authToken, refreshToken string) (*Client, e
 	return &Client{
 		client: resty.DefaultClient,
 		Url:    u,
-		oAuth: auth,
+		oAuth:  auth,
 	}, nil
 }
 
@@ -64,8 +64,8 @@ func NewClientWithWebhookAuth(intranetUrl string, userId int, secret string) (*C
 	}
 
 	auth := &WebhookAuthData{
-		UserID:	userId,
-		Secret:	secret,
+		UserID: userId,
+		Secret: secret,
 	}
 
 	_, err = govalidator.ValidateStruct(auth)
@@ -74,8 +74,8 @@ func NewClientWithWebhookAuth(intranetUrl string, userId int, secret string) (*C
 	}
 
 	return &Client{
-		client: resty.DefaultClient,
-		Url:    u,
+		client:      resty.DefaultClient,
+		Url:         u,
 		webhookAuth: auth,
 	}, nil
 }
@@ -91,7 +91,7 @@ func NewEnvClientWithWebhookAuth() (*Client, error) {
 
 	userId, err := strconv.Atoi(os.Getenv("BITRIX_WEBHOOK_USER"))
 
-	if(err != nil) {
+	if err != nil {
 		return nil, errors.Wrap(err, "Incorrect User ID")
 	}
 
@@ -112,7 +112,7 @@ func (c *Client) SetDebug(v bool) {
 func (c *Client) DoRaw(method string, reqData interface{}, respData interface{}) (*resty.Response, error) {
 	resty.SetHostURL(c.Url.String())
 	resty.SetHeader("Accept", "application/json")
-	req := resty.R();
+	req := resty.R()
 
 	var endpoint string
 	if c.webhookAuth != nil {
