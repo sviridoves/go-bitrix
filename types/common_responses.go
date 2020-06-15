@@ -1,7 +1,7 @@
 package types
 
 import (
-	//crm "github.com/nightwriter/go-bitrix/types"
+	crm "github.com/nightwriter/go-bitrix/types"
 	"github.com/pkg/errors"
 	"math"
 	"strconv"
