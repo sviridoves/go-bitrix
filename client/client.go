@@ -3,7 +3,6 @@ package client
 import (
 	"crypto/tls"
 	"fmt"
-	"github.com/appscode/go-querystring/query"
 	"github.com/asaskevich/govalidator"
 	"github.com/nightwriter/go-bitrix/types"
 	"github.com/pkg/errors"
@@ -133,13 +132,13 @@ func (c *Client) DoRaw(method string, reqData interface{}, respData interface{})
 
 	req.SetError(&types.ResponseError{})
 
-	values, err := query.Values(reqData)
-	if err != nil {
-		return nil, errors.Wrap(err, "Error encoding form")
-	}
+	// values, err := query.Values(reqData)
+	// if err != nil {
+	// 	return nil, errors.Wrap(err, "Error encoding form")
+	// }
 
 	resp, err := req.
-		SetMultiValueFormData(values).
+		SetBody(reqData).
 		Post(endpoint)
 
 	if err != nil {
