@@ -31,7 +31,7 @@ func (c *Client) CrmContactList(data interface{}) (*types.ContactsResponse, erro
 	if err != nil {
 		return nil, err
 	}
-	return resp.Result().(*types.Response), err
+	return resp.Result().(*types.ContactsResponse), err
 }
 
 func (c *Client) CrmContactUpdate(data interface{}) (*types.Response, error) {
