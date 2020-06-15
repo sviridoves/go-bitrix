@@ -1,6 +1,7 @@
 package types
 
 import (
+	//crm "github.com/nightwriter/go-bitrix/types"
 	"github.com/pkg/errors"
 	"math"
 	"strconv"
@@ -63,7 +64,7 @@ type StringResponse struct {
 
 type ContactsResponse struct {
 	Response
-	Result []Contact `json:"result"`
+	Result []crm.Contact `json:"result"`
 }
 
 func (r *Response) ToInt() (*IntResponse, error) {
