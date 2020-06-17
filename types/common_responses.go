@@ -11,6 +11,7 @@ import (
 type Response struct {
 	Result interface{}  `json:"result"`
 	Time   ResponseTime `json:"time"`
+	Total  int          `json:"total"`
 }
 
 type UnixMicroTime time.Time
