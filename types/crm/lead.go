@@ -56,18 +56,4 @@ type Lead struct {
 	Email              string    `json:"EMAIL"`
 	Web                string    `json:"WEB"`
 	Im                 string    `json:"IM"`
-	UfCrm1585559766    string    `json:"UF_CRM_1585559766"`
-	UfCrm1585559808    string    `json:"UF_CRM_1585559808"`
-	UfCrm1587971702    string    `json:"UF_CRM_1587971702"`
-	UfCrm1386855792    int       `json:"UF_CRM_1386855792"`
-	UfCrm1386857211    int       `json:"UF_CRM_1386857211"`
-	UfCrm1472628139    string    `json:"UF_CRM_1472628139"`
-	UfUtmTerm          string    `json:"UF_UTM_TERM"`
-	UfUtmContent       string    `json:"UF_UTM_CONTENT"`
-	UfCrm1516886633    string    `json:"UF_CRM_1516886633"`
-	UfCrm1529520811    string    `json:"UF_CRM_1529520811"`
-	UfCrm1529520854    time.Time `json:"UF_CRM_1529520854"`
-	UfCrm1534324060413 int       `json:"UF_CRM_1534324060413"`
-	UfCrm1557912745820 string    `json:"UF_CRM_1557912745820"`
-	UfCrm1557912807301 string    `json:"UF_CRM_1557912807301"`
 }

@@ -56,48 +56,4 @@ type Company struct {
 	Email                 string    `json:"EMAIL"`
 	Web                   string    `json:"WEB"`
 	Im                    string    `json:"IM"`
-	UfCrm1436354924       string    `json:"UF_CRM_1436354924"`
-	UfCrm1436354925       string    `json:"UF_CRM_1436354925"`
-	UfCrm1436354926       string    `json:"UF_CRM_1436354926"`
-	UfCrm1436354927       string    `json:"UF_CRM_1436354927"`
-	UfCrm1436354928       string    `json:"UF_CRM_1436354928"`
-	UfCrm1436354929       string    `json:"UF_CRM_1436354929"`
-	UfCrm1436354930       string    `json:"UF_CRM_1436354930"`
-	UfCrm1436354931       string    `json:"UF_CRM_1436354931"`
-	UfCrm1436354932       string    `json:"UF_CRM_1436354932"`
-	UfCrm1436354933       string    `json:"UF_CRM_1436354933"`
-	UfCrm1436354934       string    `json:"UF_CRM_1436354934"`
-	UfCrm57c93b8a2c849    int       `json:"UF_CRM_57C93B8A2C849"`
-	UfCrm57c93b8a4206b    int       `json:"UF_CRM_57C93B8A4206B"`
-	UfCrm57c93b8a5a1ce    string    `json:"UF_CRM_57C93B8A5A1CE"`
-	UfCrm1495218174       string    `json:"UF_CRM_1495218174"`
-	UfCrm1495218580       time.Time `json:"UF_CRM_1495218580"`
-	UfCrm1496932221       string    `json:"UF_CRM_1496932221"`
-	UfCrm5adf3a618873f    string    `json:"UF_CRM_5ADF3A618873F"`
-	UfCrm5adf3a621c37f    string    `json:"UF_CRM_5ADF3A621C37F"`
-	UfCrm5adf3a6263e92    string    `json:"UF_CRM_5ADF3A6263E92"`
-	UfCrm5b2cb0c5de934    string    `json:"UF_CRM_5B2CB0C5DE934"`
-	UfCrm5b2cb0c64b492    time.Time `json:"UF_CRM_5B2CB0C64B492"`
-	UfCrm5b8fda8079ae1    int       `json:"UF_CRM_5B8FDA8079AE1"`
-	UfCrm1543664983       string    `json:"UF_CRM_1543664983"`
-	UfCrm1543665031       string    `json:"UF_CRM_1543665031"`
-	UfCrm1547467264       string    `json:"UF_CRM_1547467264"`
-	UfCrm1547467284       string    `json:"UF_CRM_1547467284"`
-	UfCrm5cefefb8eba32    string    `json:"UF_CRM_5CEFEFB8EBA32"`
-	UfCrm5cefefb9604e0    string    `json:"UF_CRM_5CEFEFB9604E0"`
-	UfCrm1563962826       string    `json:"UF_CRM_1563962826"`
-	UfCrm1569584732       string    `json:"UF_CRM_1569584732"`
-	UfCrm1569827875149    string    `json:"UF_CRM_1569827875149"`
-	UfCrm1569829129532    string    `json:"UF_CRM_1569829129532"`
-	UfCrm1574683200202    string    `json:"UF_CRM_1574683200202"`
-	UfCrm1579864013076    int       `json:"UF_CRM_1579864013076"`
-	UfCrm1587550642156    string    `json:"UF_CRM_1587550642156"`
-	UfCrm1436354935       string    `json:"UF_CRM_1436354935"`
-	UfCrm1436354936       string    `json:"UF_CRM_1436354936"`
-	UfMoedeloId           int       `json:"UF_MOEDELO_ID"`
-	UfCrm1585653371       string    `json:"UF_CRM_1585653371"`
-	UfCrm1585653409       string    `json:"UF_CRM_1585653409"`
-	UfCrm1585653452       string    `json:"UF_CRM_1585653452"`
-	UfCrm1585736163       string    `json:"UF_CRM_1585736163"`
-	UfCrm1587119198       int       `json:"UF_CRM_1587119198"`
 }

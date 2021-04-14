@@ -65,12 +65,4 @@ type Requisite struct {
 	RqVatCertDate      string    `json:"RQ_VAT_CERT_DATE"`
 	RqResidenceCountry string    `json:"RQ_RESIDENCE_COUNTRY"`
 	RqBaseDoc          string    `json:"RQ_BASE_DOC"`
-	UfCrm1562777564    string    `json:"UF_CRM_1562777564"`
-	UfCrm1562777649    string    `json:"UF_CRM_1562777649"`
-	UfCrm1569918745    string    `json:"UF_CRM_1569918745"`
-	UfCrm1569919552    string    `json:"UF_CRM_1569919552"`
-	UfCrm1569920728    string    `json:"UF_CRM_1569920728"`
-	UfCrm1569929584    string    `json:"UF_CRM_1569929584"`
-	UfCrm1569930403    string    `json:"UF_CRM_1569930403"`
-	UfCrm1575464367    string    `json:"UF_CRM_1575464367"`
 }

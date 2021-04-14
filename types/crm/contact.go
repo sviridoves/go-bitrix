@@ -58,38 +58,4 @@ type Contact struct {
 	Email              []CrmMultifield `json:"EMAIL"`
 	Web                string          `json:"WEB"`
 	Im                 string          `json:"IM"`
-	UfCrm1543654486    string          `json:"UF_CRM_1543654486"`
-	UfCrm1543588165    string          `json:"UF_CRM_1543588165"`
-	UfCrm5e81c9a0bdb0e string          `json:"UF_CRM_5E81C9A0BDB0E"`
-	UfCrm5e81c9a1f1125 string          `json:"UF_CRM_5E81C9A1F1125"`
-	UfCrm5ea68aa2dec53 string          `json:"UF_CRM_5EA68AA2DEC53"`
-	UfCrm1409141850    int             `json:"UF_CRM_1409141850"`
-	UfCrm560548ef6fc70 int             `json:"UF_CRM_560548EF6FC70"`
-	UfCrm560548ef73e94 int             `json:"UF_CRM_560548EF73E94"`
-	UfCrm57c93b8a19a74 string          `json:"UF_CRM_57C93B8A19A74"`
-	UfCrm1497382470    string          `json:"UF_CRM_1497382470"`
-	UfCrm1497884835    string          `json:"UF_CRM_1497884835"`
-	UfCrm1498318041    string          `json:"UF_CRM_1498318041"`
-	UfCrm1498318077    string          `json:"UF_CRM_1498318077"`
-	UfCrm1499446373    string          `json:"UF_CRM_1499446373"`
-	UfCrm5a6845a20bd9d string          `json:"UF_CRM_5A6845A20BD9D"`
-	UfCrm5a6845a28b9ab string          `json:"UF_CRM_5A6845A28B9AB"`
-	UfCrm5a69dcdec9b3c string          `json:"UF_CRM_5A69DCDEC9B3C"`
-	UfCrm5b2b8a93dcd98 string          `json:"UF_CRM_5B2B8A93DCD98"`
-	UfCrm5b2b8a9496209 time.Time       `json:"UF_CRM_5B2B8A9496209"`
-	UfCrm5b756db460dc3 int             `json:"UF_CRM_5B756DB460DC3"`
-	UfCrm1548849779    string          `json:"UF_CRM_1548849779"`
-	UfCrm1548850096    string          `json:"UF_CRM_1548850096"`
-	UfCrm1548850308    string          `json:"UF_CRM_1548850308"`
-	UfCrm1548850343    string          `json:"UF_CRM_1548850343"`
-	UfCrm1548850386    string          `json:"UF_CRM_1548850386"`
-	UfCrm1548850419    string          `json:"UF_CRM_1548850419"`
-	UfCrm1548850472    string          `json:"UF_CRM_1548850472"`
-	UfCrm1548850489    string          `json:"UF_CRM_1548850489"`
-	UfCrm1548850518    string          `json:"UF_CRM_1548850518"`
-	UfCrm1548938252    string          `json:"UF_CRM_1548938252"`
-	UfCrm1554804867    string          `json:"UF_CRM_1554804867"`
-	UfCrm5cdc0f609baea string          `json:"UF_CRM_5CDC0F609BAEA"`
-	UfCrm5cdc0f613902f string          `json:"UF_CRM_5CDC0F613902F"`
-	UfCrm1564650862    string          `json:"UF_CRM_1564650862"`
 }
