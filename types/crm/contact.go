@@ -10,7 +10,7 @@ type CrmMultifield struct {
 }
 
 type Contact struct {
-    Id                 int             `json:"ID"`
+    Id                 int             `json:"ID,string"`
     Honorific          string          `json:"HONORIFIC"`
     Name               string          `json:"NAME"`
     SecondName         string          `json:"SECOND_NAME"`

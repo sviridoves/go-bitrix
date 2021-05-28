@@ -5,7 +5,7 @@ import (
 )
 
 type Company struct {
-    Id                    int       `json:"ID"`
+    Id                    int       `json:"ID,string"`
     Title                 string    `json:"TITLE"`
     CompanyType           string    `json:"COMPANY_TYPE"`
     Logo                  int       `json:"LOGO"`
