@@ -1,6 +1,6 @@
 package client
 
-import "github.com/ikarpovich/go-bitrix/types"
+import "github.com/nightwriter/go-bitrix/types"
 
 func (c *Client) CrmCompanyFields(data interface{}) (*types.Response, error) {
 	resp, err := c.DoRaw("crm.company.fields", data, &types.Response{})
@@ -26,12 +26,12 @@ func (c *Client) CrmCompanyGet(data interface{}) (*types.Response, error) {
 	return resp.Result().(*types.Response), err
 }
 
-func (c *Client) CrmCompanyList(data interface{}) (*types.Response, error) {
-	resp, err := c.DoRaw("crm.company.list", data, &types.Response{})
+func (c *Client) CrmCompanyList(data interface{}) (*types.CompaniesResponse, error) {
+	resp, err := c.DoRaw("crm.company.list", data, &types.CompaniesResponse{})
 	if err != nil {
 		return nil, err
 	}
-	return resp.Result().(*types.Response), err
+	return resp.Result().(*types.CompaniesResponse), err
 }
 
 func (c *Client) CrmCompanyUpdate(data interface{}) (*types.Response, error) {
