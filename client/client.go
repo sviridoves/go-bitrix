@@ -110,7 +110,7 @@ func (c *Client) SetDebug(v bool) {
 
 func (c *Client) DoRaw(method string, reqData interface{}, respData interface{}) (*resty.Response, error) {
 	resty.SetHostURL(c.Url.String())
-	resty.SetHeader("Accept", "application/json")
+//	resty.SetHeader("Accept", "application/json") // commented because of causing "fatal error: concurrent map writes" with goroutines
 	req := resty.R()
 
 	var endpoint string
