@@ -13,13 +13,13 @@ Features
 Installation
 ------------
 ```bash
-go get -u github.com/ikarpovich/go-bitrix
+go get -u github.com/nightwriter/go-bitrix
 ```
 
 Usage
 -----
 ```go
-See [examples](https://github.com/ikarpovich/go-bitrix/blob/master/examples/common_methods/main.go)
+See [examples](https://github.com/nightwriter/go-bitrix/blob/master/examples/common_methods/main.go)
 ```
 
 Roadmap
