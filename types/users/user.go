@@ -32,7 +32,7 @@ type User struct {
 	TimeZone           string      `json:"TIME_ZONE"`
 	TimeZoneOffset     string      `json:"TIME_ZONE_OFFSET"`
 	Title              string      `json:"TITLE"`
-	UfDepartment       []int64     `json:"UF_DEPARTMENT"`
+	UfDepartment       interface{} `json:"UF_DEPARTMENT"`
 	UfDistrict         string      `json:"UF_DISTRICT"`
 	UfEmploymentDate   string      `json:"UF_EMPLOYMENT_DATE"`
 	UfFacebook         string      `json:"UF_FACEBOOK"`
