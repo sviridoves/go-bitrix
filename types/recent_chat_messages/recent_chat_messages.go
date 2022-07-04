@@ -1,4 +1,4 @@
-package RecentChatMessages
+package recent_chat_messages
 
 import "time"
 

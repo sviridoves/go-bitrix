@@ -2,6 +2,10 @@ package tasks
 
 import "time"
 
+type AllTasks struct {
+	Tasks []Task `json:"tasks"`
+}
+
 type Task struct {
 	ID                   int           `json:"ID,string"`
 	ParentID             int           `json:"parentId,string"`
@@ -29,7 +33,7 @@ type Task struct {
 	Deadline             time.Time     `json:"deadline"`
 	StartDatePlan        time.Time     `json:"startDatePlan"`
 	EndDatePlan          time.Time     `json:"endDatePlan"`
-	GUID                 int           `json:"guid,string"`
+	GUID                 string        `json:"guid"`
 	XMLID                int           `json:"xmlId,string"`
 	CommentsCount        string        `json:"commentsCount"`
 	ServiceCommentsCount string        `json:"serviceCommentsCount"`
@@ -68,12 +72,12 @@ type Task struct {
 }
 
 type GroupData struct {
-	ID             int    `json:"id,string"`
-	Name           string `json:"name"`
-	Opened         bool   `json:"opened"`
-	MembersCount   int    `json:"membersCount"`
-	Image          string `json:"image"`
-	AdditionalData string `json:"additionalData"`
+	ID             int           `json:"id,string"`
+	Name           string        `json:"name"`
+	Opened         bool          `json:"opened"`
+	MembersCount   int           `json:"membersCount"`
+	Image          string        `json:"image"`
+	AdditionalData []interface{} `json:"additionalData"`
 }
 
 type UserData struct {
