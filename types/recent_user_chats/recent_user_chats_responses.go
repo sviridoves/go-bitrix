@@ -1,4 +1,4 @@
-package RecentUserChats
+package recent_user_chats
 
 import "github.com/nightwriter/go-bitrix/types"
 
