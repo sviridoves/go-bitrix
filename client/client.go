@@ -3,13 +3,17 @@ package client
 import (
 	"crypto/tls"
 	"fmt"
+	"io/ioutil"
+	"log"
+	"net/http"
+	"net/url"
+	"os"
+	"strconv"
+
 	"github.com/asaskevich/govalidator"
 	"github.com/nightwriter/go-bitrix/types"
 	"github.com/pkg/errors"
 	"gopkg.in/resty.v1"
-	"net/url"
-	"os"
-	"strconv"
 )
 
 type Client struct {
@@ -110,7 +114,7 @@ func (c *Client) SetDebug(v bool) {
 
 func (c *Client) DoRaw(method string, reqData interface{}, respData interface{}) (*resty.Response, error) {
 	resty.SetHostURL(c.Url.String())
-//	resty.SetHeader("Accept", "application/json") // commented because of causing "fatal error: concurrent map writes" with goroutines
+	//	resty.SetHeader("Accept", "application/json") // commented because of causing "fatal error: concurrent map writes" with goroutines
 	req := resty.R()
 
 	var endpoint string
@@ -156,4 +160,31 @@ func (c *Client) DoRaw(method string, reqData interface{}, respData interface{})
 func (c *Client) Do(method string, reqData interface{}, respData interface{}) (interface{}, error) {
 	resp, err := c.DoRaw(method, reqData, respData)
 	return resp.Result(), err
+}
+
+func (c *Client) Pagination_data_byte(ml map[string]string) []byte {
+	Portal := os.Getenv("BITRIX_URL")
+	WebhookAuthSecret := os.Getenv("BITRIX_WEBHOOK_SECRET")
+	WebhookAuthUserID, _ := strconv.Atoi(os.Getenv("BITRIX_WEBHOOK_USER"))
+	Method := fmt.Sprintf("batch.json?halt:%d", 0)
+	for i := 0; i < len(ml)/2; i++ {
+		drn := fmt.Sprintf("data_rec_%d", i)
+		pr := fmt.Sprintf("parametr_%d", i)
+		buff := fmt.Sprintf("&cmd[%s]=%s%s", drn, ml[drn], ml[pr])
+		Method = fmt.Sprintf(Method + buff)
+	}
+	webhook := fmt.Sprintf("%s/rest/%d/%s/%s", Portal, WebhookAuthUserID, WebhookAuthSecret, Method)
+	return webhook_responce(webhook)
+}
+
+func webhook_responce(url string) []byte {
+	Apiurl, err := http.Get(url)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	body, err := ioutil.ReadAll(Apiurl.Body)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	return body
 }
