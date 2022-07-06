@@ -3,9 +3,6 @@ package client
 import (
 	"crypto/tls"
 	"fmt"
-	"io/ioutil"
-	"log"
-	"net/http"
 	"net/url"
 	"os"
 	"strconv"
@@ -162,7 +159,7 @@ func (c *Client) Do(method string, reqData interface{}, respData interface{}) (i
 	return resp.Result(), err
 }
 
-func (c *Client) Pagination_data_byte(ml map[string]string) []byte {
+func (c *Client) PaginationData(ml map[string]string, reqData interface{}, respData interface{}) (*resty.Response, error) {
 	Portal := os.Getenv("BITRIX_URL")
 	WebhookAuthSecret := os.Getenv("BITRIX_WEBHOOK_SECRET")
 	WebhookAuthUserID, _ := strconv.Atoi(os.Getenv("BITRIX_WEBHOOK_USER"))
@@ -174,17 +171,26 @@ func (c *Client) Pagination_data_byte(ml map[string]string) []byte {
 		Method = fmt.Sprintf(Method + buff)
 	}
 	webhook := fmt.Sprintf("%s/rest/%d/%s/%s", Portal, WebhookAuthUserID, WebhookAuthSecret, Method)
-	return webhook_responce(webhook)
-}
 
-func webhook_responce(url string) []byte {
-	Apiurl, err := http.Get(url)
-	if err != nil {
-		log.Fatalln(err)
+	req := resty.R()
+
+	if respData != nil {
+		req.SetResult(respData)
 	}
-	body, err := ioutil.ReadAll(Apiurl.Body)
+	req.SetError(&types.ResponseError{})
+
+	resp, err := req.
+		SetBody(reqData).
+		Post(webhook)
+
 	if err != nil {
-		log.Fatalln(err)
+		return nil, errors.Wrap(err, "Error posting data")
 	}
-	return body
+
+	if resp.IsError() {
+		error := resp.Error().(*types.ResponseError)
+		return resp, errors.New(fmt.Sprintf("REST method error (%s): %s", error.Code, error.Description))
+	}
+
+	return resp, err
 }
