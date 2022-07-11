@@ -13,6 +13,11 @@ import (
 	"gopkg.in/resty.v1"
 )
 
+var (
+	BatchLimit     = 50
+	ResponseOffset = 50
+)
+
 type Client struct {
 	client      *resty.Client
 	oAuth       *OAuthData
@@ -28,6 +33,11 @@ type OAuthData struct {
 type WebhookAuthData struct {
 	UserID int    `valid:"required"`
 	Secret string `valid:"alphanum,required"`
+}
+
+type MethodParametr struct {
+	Method   string
+	Parametr string
 }
 
 func init() {
@@ -159,21 +169,16 @@ func (c *Client) Do(method string, reqData interface{}, respData interface{}) (i
 	return resp.Result(), err
 }
 
-func (c *Client) PaginationData(ml map[string]string, reqData interface{}, respData interface{}) (*resty.Response, error) {
-	Portal := os.Getenv("BITRIX_URL")
-	WebhookAuthSecret := os.Getenv("BITRIX_WEBHOOK_SECRET")
-	WebhookAuthUserID, _ := strconv.Atoi(os.Getenv("BITRIX_WEBHOOK_USER"))
+func (c *Client) PaginationData(methodList map[string]MethodParametr, reqData interface{}, respData interface{}) (*resty.Response, error) {
 	Method := fmt.Sprintf("batch.json?halt:%d", 0)
-	for i := 0; i < len(ml)/2; i++ {
-		drn := fmt.Sprintf("data_rec_%d", i)
-		pr := fmt.Sprintf("parametr_%d", i)
-		buff := fmt.Sprintf("&cmd[%s]=%s%s", drn, ml[drn], ml[pr])
-		Method = fmt.Sprintf(Method + buff)
+	for i := 0; i < len(methodList); i++ {
+		dataRequestNum := fmt.Sprintf("DataRequest%d", i)
+		buffer := fmt.Sprintf("&cmd[%s]=%s%s", dataRequestNum, methodList[dataRequestNum].Method, methodList[dataRequestNum].Parametr)
+		Method = fmt.Sprintf(Method + buffer)
 	}
-	webhook := fmt.Sprintf("%s/rest/%d/%s/%s", Portal, WebhookAuthUserID, WebhookAuthSecret, Method)
 
+	webhook := fmt.Sprintf("%s/rest/%d/%s/%s", resty.SetHostURL(c.Url.String()).HostURL, c.webhookAuth.UserID, c.webhookAuth.Secret, Method)
 	req := resty.R()
-
 	if respData != nil {
 		req.SetResult(respData)
 	}
