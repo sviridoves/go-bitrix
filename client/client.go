@@ -3,13 +3,19 @@ package client
 import (
 	"crypto/tls"
 	"fmt"
+	"net/url"
+	"os"
+	"strconv"
+
 	"github.com/asaskevich/govalidator"
 	"github.com/nightwriter/go-bitrix/types"
 	"github.com/pkg/errors"
 	"gopkg.in/resty.v1"
-	"net/url"
-	"os"
-	"strconv"
+)
+
+const (
+	BatchLimit     = 50
+	ResponseOffset = 50
 )
 
 type Client struct {
@@ -27,6 +33,11 @@ type OAuthData struct {
 type WebhookAuthData struct {
 	UserID int    `valid:"required"`
 	Secret string `valid:"alphanum,required"`
+}
+
+type MethodParametr struct {
+	Method   string
+	Parametr string
 }
 
 func init() {
@@ -110,7 +121,7 @@ func (c *Client) SetDebug(v bool) {
 
 func (c *Client) DoRaw(method string, reqData interface{}, respData interface{}) (*resty.Response, error) {
 	resty.SetHostURL(c.Url.String())
-//	resty.SetHeader("Accept", "application/json") // commented because of causing "fatal error: concurrent map writes" with goroutines
+	//	resty.SetHeader("Accept", "application/json") // commented because of causing "fatal error: concurrent map writes" with goroutines
 	req := resty.R()
 
 	var endpoint string
@@ -156,4 +167,35 @@ func (c *Client) DoRaw(method string, reqData interface{}, respData interface{})
 func (c *Client) Do(method string, reqData interface{}, respData interface{}) (interface{}, error) {
 	resp, err := c.DoRaw(method, reqData, respData)
 	return resp.Result(), err
+}
+
+func (c *Client) PaginationData(methodList map[string]MethodParametr, reqData interface{}, respData interface{}) (*resty.Response, error) {
+	Method := fmt.Sprintf("batch.json?halt:%d", 0)
+	for i := 0; i < len(methodList); i++ {
+		dataRequestNum := fmt.Sprintf("DataRequest%d", i)
+		buffer := fmt.Sprintf("&cmd[%s]=%s%s", dataRequestNum, methodList[dataRequestNum].Method, methodList[dataRequestNum].Parametr)
+		Method = fmt.Sprintf(Method + buffer)
+	}
+
+	webhook := fmt.Sprintf("%s/rest/%d/%s/%s", resty.SetHostURL(c.Url.String()).HostURL, c.webhookAuth.UserID, c.webhookAuth.Secret, Method)
+	req := resty.R()
+	if respData != nil {
+		req.SetResult(respData)
+	}
+	req.SetError(&types.ResponseError{})
+
+	resp, err := req.
+		SetBody(reqData).
+		Post(webhook)
+
+	if err != nil {
+		return nil, errors.Wrap(err, "Error posting data")
+	}
+
+	if resp.IsError() {
+		error := resp.Error().(*types.ResponseError)
+		return resp, errors.New(fmt.Sprintf("REST method error (%s): %s", error.Code, error.Description))
+	}
+
+	return resp, err
 }
