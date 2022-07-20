@@ -13,7 +13,7 @@ import (
 	"gopkg.in/resty.v1"
 )
 
-var (
+const (
 	BatchLimit     = 50
 	ResponseOffset = 50
 )
