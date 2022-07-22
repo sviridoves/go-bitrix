@@ -38,7 +38,7 @@ type Contact struct {
 	OriginatorId      string    `json:"ORIGINATOR_ID"`
 	OriginId          string    `json:"ORIGIN_ID"`
 	OriginVersion     string    `json:"ORIGIN_VERSION"`
-	FaceId            int       `json:"FACE_ID"`
+	FaceId            int       `json:"FACE_ID,string"`
 	UtmSource         string    `json:"UTM_SOURCE"`
 	UtmMedium         string    `json:"UTM_MEDIUM"`
 	UtmCampaign       string    `json:"UTM_CAMPAIGN"`

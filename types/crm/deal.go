@@ -3,7 +3,7 @@ package crm
 import "time"
 
 type Deal struct {
-	Id                  int         `json:"ID"`
+	Id                  int         `json:"ID,string"`
 	Title               string      `json:"TITLE"`
 	TypeId              string      `json:"TYPE_ID"`
 	CategoryId          int         `json:"CATEGORY_ID,string"`
@@ -15,9 +15,9 @@ type Deal struct {
 	IsRepeatedApproach  string      `json:"IS_REPEATED_APPROACH"`
 	Probability         int         `json:"PROBABILITY"`
 	CurrencyId          string      `json:"CURRENCY_ID"`
-	Opportunity         float64     `json:"OPPORTUNITY"`
+	Opportunity         float64     `json:"OPPORTUNITY,string"`
 	IsManualOpportunity string      `json:"IS_MANUAL_OPPORTUNITY"`
-	TaxValue            float64     `json:"TAX_VALUE"`
+	TaxValue            float64     `json:"TAX_VALUE,string"`
 	CompanyID           int         `json:"COMPANY_ID,string"`
 	ContactId           int         `json:"CONTACT_ID,string"`
 	QuoteId             string      `json:"QUOTE_ID"`
