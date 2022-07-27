@@ -170,14 +170,15 @@ func (c *Client) Do(method string, reqData interface{}, respData interface{}) (i
 }
 
 func (c *Client) PaginationData(methodList map[string]MethodParametr, reqData interface{}, respData interface{}) (*resty.Response, error) {
-	Method := fmt.Sprintf("batch.json?halt:%d", 0)
+	Method := fmt.Sprintf("batch.json?halt:%d&", 0)
+	Params := url.Values{}
 	for i := 0; i < len(methodList); i++ {
 		dataRequestNum := fmt.Sprintf("DataRequest%d", i)
-		buffer := fmt.Sprintf("&cmd[%s]=%s%s", dataRequestNum, methodList[dataRequestNum].Method, methodList[dataRequestNum].Parametr)
-		Method = fmt.Sprintf(Method + buffer)
+		Params.Add((fmt.Sprintf("cmd[%s]", dataRequestNum)), (fmt.Sprintf("%s%s", methodList[dataRequestNum].Method, methodList[dataRequestNum].Parametr)))
 	}
+	url := fmt.Sprintf("%s/rest/%d/%s/", resty.SetHostURL(c.Url.String()).HostURL, c.webhookAuth.UserID, c.webhookAuth.Secret)
+	webhook := fmt.Sprintf("%s%s%s", url, Method, Params.Encode())
 
-	webhook := fmt.Sprintf("%s/rest/%d/%s/%s", resty.SetHostURL(c.Url.String()).HostURL, c.webhookAuth.UserID, c.webhookAuth.Secret, Method)
 	req := resty.R()
 	if respData != nil {
 		req.SetResult(respData)
