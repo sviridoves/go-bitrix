@@ -51,20 +51,5 @@ type Lead struct {
 	Phone              []CrmMultifield `json:"PHONE"`
 	Email              []CrmMultifield `json:"EMAIL"`
 
-	UfCrm1585559766    string        `json:"UF_CRM_1585559766"`
-	UfCrm1585559808    string        `json:"UF_CRM_1585559808"`
-	UfCrm1587971702    interface{}   `json:"UF_CRM_1587971702"`
-	UfCrm1386855792    interface{}   `json:"UF_CRM_1386855792"`
-	UfCrm1386857211    []interface{} `json:"UF_CRM_1386857211"`
-	UfCrm1472628139    string        `json:"UF_CRM_1472628139"`
-	UfUtmTerm          interface{}   `json:"UF_UTM_TERM"`
-	UfUtmContent       interface{}   `json:"UF_UTM_CONTENT"`
-	UfCrm1516886633    interface{}   `json:"UF_CRM_1516886633"`
-	UfCrm1529520811    interface{}   `json:"UF_CRM_1529520811"`
-	UfCrm1529520854    string        `json:"UF_CRM_1529520854"`
-	UfCrm1534324060413 []interface{} `json:"UF_CRM_1534324060413"`
-	UfCrm1557912745820 interface{}   `json:"UF_CRM_1557912745820"`
-	UfCrm1557912807301 interface{}   `json:"UF_CRM_1557912807301"`
-	UfCrm1543588165    interface{}   `json:"UF_CRM_1543588165"`
-	UfCrm1592399114    interface{}   `json:"UF_CRM_1592399114"`
+	Userfield []map[string]interface{}
 }
