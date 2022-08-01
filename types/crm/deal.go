@@ -46,4 +46,6 @@ type Deal struct {
 	MovedByID           int         `json:"MOVED_BY_ID,string"`
 	MovedTime           time.Time   `json:"MOVED_TIME"`
 	ParentID133         interface{} `json:"PARENT_ID_133"`
+
+	Userfield map[string]interface{}
 }

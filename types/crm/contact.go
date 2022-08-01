@@ -60,4 +60,6 @@ type Contact struct {
 	Phone             []CrmMultifield `json:"PHONE,omitempty"`
 	Email             []CrmMultifield `json:"EMAIL,omitempty"`
 	Web               []CrmMultifield `json:"WEB,omitempty"`
+
+	Userfield map[string]interface{}
 }

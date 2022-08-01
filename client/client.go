@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	BatchLimit     = 50
+	BatchLimit     = 45
 	ResponseOffset = 50
 )
 

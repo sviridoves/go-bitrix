@@ -50,4 +50,6 @@ type Lead struct {
 	UtmTerm            string          `json:"UTM_TERM"`
 	Phone              []CrmMultifield `json:"PHONE"`
 	Email              []CrmMultifield `json:"EMAIL"`
+
+	Userfield []map[string]interface{}
 }
