@@ -51,5 +51,5 @@ type Lead struct {
 	Phone              []CrmMultifield `json:"PHONE"`
 	Email              []CrmMultifield `json:"EMAIL"`
 
-	Userfield []map[string]interface{}
+	Userfield map[string]interface{}
 }
