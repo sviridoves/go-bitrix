@@ -309,15 +309,15 @@ type UserType struct {
 	Description string `json:"DESCRIPTION"`
 	BaseType    string `json:"BASE_TYPE"`
 
-	EditCallback []string `json:"EDIT_CALLBACK,omitempty"` // UfBlogPost_Imprtnt UfGratitude UfBlogPost_Doc
-	ViewCallback []string `json:"VIEW_CALLBACK,omitempty"` // UfBlogPost_Imprtnt UfGratitude UfBlogPost_Doc
+	EditCallback []string `json:"EDIT_CALLBACK,omitempty"`
+	ViewCallback []string `json:"VIEW_CALLBACK,omitempty"`
 
-	OnBeforeSave []string `json:"onBeforeSave,omitempty"` // UfMailMessage
-	OnDelete     []string `json:"onDelete,omitempty"`     // UfMailMessage
+	OnBeforeSave []string `json:"onBeforeSave,omitempty"`
+	OnDelete     []string `json:"onDelete,omitempty"`
 
-	Tag []string `json:"TAG,omitempty"` // UfBlogPost_File
+	Tag []string `json:"TAG,omitempty"`
 
-	UseFieldComponent bool `json:"USE_FIELD_COMPONENT,omitempty"` // UfImprtantDateEnd UfBlogPost_FEdit
+	UseFieldComponent bool `json:"USE_FIELD_COMPONENT,omitempty"`
 }
 
 type Settings struct {
