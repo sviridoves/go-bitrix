@@ -93,12 +93,7 @@ type Uf_Gratitude struct {
 
 	Value interface{} `json:"VALUE"`
 
-	Settings struct {
-		Size         int `json:"SIZE"`
-		MinValue     int `json:"MIN_VALUE"`
-		MaxValue     int `json:"MAX_VALUE"`
-		DefaultValue int `json:"DEFAULT_VALUE"`
-	} `json:"SETTINGS"`
+	Settings Settings `json:"SETTINGS"`
 }
 
 type Uf_BlogPost_Imprtnt struct {
@@ -124,12 +119,7 @@ type Uf_BlogPost_Imprtnt struct {
 
 	Value string `json:"VALUE"`
 
-	Settings struct {
-		Size         int    `json:"SIZE"`
-		MinValue     int    `json:"MIN_VALUE"`
-		MaxValue     int    `json:"MAX_VALUE"`
-		DefaultValue string `json:"DEFAULT_VALUE"`
-	} `json:"SETTINGS"`
+	Settings Settings `json:"SETTINGS"`
 }
 
 type Uf_BlogPost_Vote struct {
@@ -328,4 +318,11 @@ type UserType struct {
 	Tag []string `json:"TAG,omitempty"` // UfBlogPost_File
 
 	UseFieldComponent bool `json:"USE_FIELD_COMPONENT,omitempty"` // UfImprtantDateEnd UfBlogPost_FEdit
+}
+
+type Settings struct {
+	Size         int `json:"SIZE"`
+	MinValue     int `json:"MIN_VALUE"`
+	MaxValue     int `json:"MAX_VALUE"`
+	DefaultValue int `json:"DEFAULT_VALUE"`
 }
