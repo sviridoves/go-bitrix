@@ -1,4 +1,4 @@
-module github.com/nightwriter/go-bitrix
+module github.com/sviridoves/go-bitrix
 
 go 1.17
 
