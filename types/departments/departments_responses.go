@@ -1,6 +1,6 @@
 package departments
 
-import "github.com/nightwriter/go-bitrix/types"
+import "github.com/sviridoves/go-bitrix/types"
 
 type DepartmentResponse struct {
 	types.Response

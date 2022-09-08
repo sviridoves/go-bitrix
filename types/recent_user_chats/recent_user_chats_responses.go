@@ -1,6 +1,6 @@
 package recent_user_chats
 
-import "github.com/nightwriter/go-bitrix/types"
+import "github.com/sviridoves/go-bitrix/types"
 
 type RecentUserChatsResponce struct {
 	types.Response

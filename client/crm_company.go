@@ -1,6 +1,6 @@
 package client
 
-import "github.com/nightwriter/go-bitrix/types"
+import "github.com/sviridoves/go-bitrix/types"
 
 func (c *Client) CrmCompanyFields(data interface{}) (*types.Response, error) {
 	resp, err := c.DoRaw("crm.company.fields", data, &types.Response{})
@@ -169,4 +169,3 @@ func (c *Client) CrmCompanyDetailsConfigurationForcecommonscopeforall(data inter
 	}
 	return resp.Result().(*types.Response), err
 }
-

@@ -1,6 +1,6 @@
 package task_comments
 
-import "github.com/nightwriter/go-bitrix/types"
+import "github.com/sviridoves/go-bitrix/types"
 
 type TaskCommentsResponse struct {
 	Result             []TaskComments `json:"result"`

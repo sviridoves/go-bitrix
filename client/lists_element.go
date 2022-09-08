@@ -1,6 +1,6 @@
 package client
 
-import "github.com/nightwriter/go-bitrix/types"
+import "github.com/sviridoves/go-bitrix/types"
 
 func (c *Client) ListsElementAdd(data interface{}) (*types.Response, error) {
 	resp, err := c.DoRaw("lists.element.add", data, &types.Response{})

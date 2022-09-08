@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/nightwriter/go-bitrix/types/crm"
 	"github.com/pkg/errors"
+	"github.com/sviridoves/go-bitrix/types/crm"
 )
 
 type Response struct {

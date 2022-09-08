@@ -8,8 +8,8 @@ import (
 	"strconv"
 
 	"github.com/asaskevich/govalidator"
-	"github.com/nightwriter/go-bitrix/types"
 	"github.com/pkg/errors"
+	"github.com/sviridoves/go-bitrix/types"
 	"gopkg.in/resty.v1"
 )
 

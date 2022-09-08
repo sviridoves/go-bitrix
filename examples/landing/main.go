@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/ikarpovich/go-bitrix/client"
-	"github.com/ikarpovich/go-bitrix/types/landing"
+	"github.com/sviridoves/go-bitrix/client"
+	"github.com/sviridoves/go-bitrix/types/landing"
 	"log"
 )
 
@@ -19,8 +19,8 @@ func main() {
 	resp, err := c.LandingRepoRegister(&landing.RepoRegisterRequest{
 		Code: "test_block",
 		Fields: landing.BlockFields{
-			Name: "Test Block",
-			Content: "<div><It works!</div>",
+			Name:     "Test Block",
+			Content:  "<div><It works!</div>",
 			Sections: "menu",
 		},
 		Manifest: landing.BlockManifest{},

@@ -1,8 +1,8 @@
 package client
 
 import (
-	"github.com/nightwriter/go-bitrix/types"
-	"github.com/nightwriter/go-bitrix/types/users"
+	"github.com/sviridoves/go-bitrix/types"
+	"github.com/sviridoves/go-bitrix/types/users"
 )
 
 func (c *Client) UserOptionGet(data interface{}) (*types.Response, error) {

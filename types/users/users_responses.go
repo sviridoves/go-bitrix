@@ -1,6 +1,6 @@
 package users
 
-import "github.com/nightwriter/go-bitrix/types"
+import "github.com/sviridoves/go-bitrix/types"
 
 type UsersResponse struct {
 	types.Response

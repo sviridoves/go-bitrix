@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/ikarpovich/go-bitrix/client"
-	"github.com/ikarpovich/go-bitrix/types"
+	"github.com/sviridoves/go-bitrix/client"
+	"github.com/sviridoves/go-bitrix/types"
 	"log"
 )
 
@@ -17,7 +17,7 @@ func main() {
 	c.SetDebug(true)
 
 	resp, err := c.Methods(&types.MethodsRequest{
-		Full: true,
+		Full:  true,
 		Scope: "landing",
 	})
 
