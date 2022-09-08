@@ -42,7 +42,7 @@ func (c *Client) CrmTypeUpdate(data interface{}) (*types.Response, error) {
 	return resp.Result().(*types.Response), err
 }
 
-func (c *Client) CrmtypeDelete(data interface{}) (*types.Response, error) {
+func (c *Client) CrmTypeDelete(data interface{}) (*types.Response, error) {
 	resp, err := c.DoRaw("crm.type.delete", data, &types.Response{})
 	if err != nil {
 		return nil, err
