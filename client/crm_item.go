@@ -26,12 +26,12 @@ func (c *Client) CrmItemGet(data interface{}) (*types.Response, error) {
 	return resp.Result().(*types.Response), err
 }
 
-func (c *Client) CrmItemList(data interface{}) (*types.CompaniesResponse, error) {
-	resp, err := c.DoRaw("crm.item.list", data, &types.CompaniesResponse{})
+func (c *Client) CrmItemList(data interface{}) (*types.ItemsResponse, error) {
+	resp, err := c.DoRaw("crm.item.list", data, &types.ItemsResponse{})
 	if err != nil {
 		return nil, err
 	}
-	return resp.Result().(*types.CompaniesResponse), err
+	return resp.Result().(*types.ItemsResponse), err
 }
 
 func (c *Client) CrmItemUpdate(data interface{}) (*types.Response, error) {

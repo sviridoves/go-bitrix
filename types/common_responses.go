@@ -75,6 +75,16 @@ type CompaniesResponse struct {
 	Result []crm.Company `json:"result"`
 }
 
+type ItemsResponse struct {
+	Response
+	Result []crm.Item `json:"result"`
+}
+
+type TypesResponse struct {
+	Response
+	Result []crm.Type `json:"result"`
+}
+
 func (r *Response) ToInt() (*IntResponse, error) {
 	res := &IntResponse{
 		Response: *r,
