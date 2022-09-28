@@ -2,7 +2,7 @@ package crm
 
 type Type []struct {
 	Result struct {
-		Type struct {
+		Types []struct {
 			ID    int    `json:"ID,string"`
 			Title string `json:"TITLE"`
 			//Code                      string `json:"CODE"`
