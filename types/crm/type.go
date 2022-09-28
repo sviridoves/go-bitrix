@@ -1,7 +1,7 @@
 package crm
 
 type Type []struct {
-	ID                        int    `json:"ID,string"`
+	ID                        int    `json:"ID"`
 	Title                     string `json:"TITLE"`
 	Code                      string `json:"CODE"`
 	CreatedBy                 int    `json:"CREATED_BY"`
@@ -53,10 +53,10 @@ type Type []struct {
 //	}
 //}
 
-type CrmTypeGetStruct struct {
-	Types []struct {
-		ID           int    `json:"ID,string"`
-		Title        string `json:"TITLE"`
-		EntityTypeID int    `json:"ENTITY_TYPE_ID"`
-	} `json:"types"`
-}
+//type CrmTypeGetStruct struct {
+//	Types []struct {
+//		ID           int    `json:"ID,string"`
+//		Title        string `json:"TITLE"`
+//		EntityTypeID int    `json:"ENTITY_TYPE_ID"`
+//	} `json:"types"`
+//}
