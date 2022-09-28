@@ -82,7 +82,7 @@ type ItemsResponse struct {
 
 type TypesResponse struct {
 	Response
-	Result []crm.Type `json:"result"`
+	Result crm.Type `json:"result"`
 }
 
 func (r *Response) ToInt() (*IntResponse, error) {
