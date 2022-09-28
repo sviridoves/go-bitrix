@@ -54,11 +54,9 @@ type Type []struct {
 //}
 
 type CrmTypeGetStruct struct {
-	Result struct {
-		Types []struct {
-			ID           int    `json:"ID,string"`
-			Title        string `json:"TITLE"`
-			EntityTypeID int    `json:"ENTITY_TYPE_ID"`
-		} `json:"types"`
-	}
+	Types []struct {
+		ID           int    `json:"ID,string"`
+		Title        string `json:"TITLE"`
+		EntityTypeID int    `json:"ENTITY_TYPE_ID"`
+	} `json:"types"`
 }
