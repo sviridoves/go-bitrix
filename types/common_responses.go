@@ -77,7 +77,7 @@ type CompaniesResponse struct {
 
 type ItemsResponse struct {
 	Response
-	Result []crm.Item `json:"result"`
+	Result crm.Item `json:"result"`
 }
 
 type TypesResponse struct {
