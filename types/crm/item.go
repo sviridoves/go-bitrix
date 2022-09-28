@@ -41,13 +41,13 @@ type Item struct {
 		//UfCrm51662608840    time.Time   `json:"UF_CRM_5_1662608840"`
 		//UfCrm51662608850    int         `json:"UF_CRM_5_1662608850"`
 		//UfCrm51662608860    int         `json:"UF_CRM_5_1662608860"`
-		AssignedByID string                 `json:"ASSIGNED_BY_ID"`
-		UtmSource    interface{}            `json:"UTM_SOURCE"`
-		UtmMedium    interface{}            `json:"UTM_MEDIUM"`
-		UtmCampaign  interface{}            `json:"UTM_CAMPAIGN"`
-		UtmContent   interface{}            `json:"UTM_CONTENT"`
-		UtmTerm      interface{}            `json:"UTM_TERM"`
-		EntityTypeID int                    `json:"ENTITY_TYPE_ID"`
-		Userfield    map[string]interface{} `json:"-"`
+		AssignedByID string      `json:"ASSIGNED_BY_ID"`
+		UtmSource    interface{} `json:"UTM_SOURCE"`
+		UtmMedium    interface{} `json:"UTM_MEDIUM"`
+		UtmCampaign  interface{} `json:"UTM_CAMPAIGN"`
+		UtmContent   interface{} `json:"UTM_CONTENT"`
+		UtmTerm      interface{} `json:"UTM_TERM"`
+		EntityTypeID int         `json:"ENTITY_TYPE_ID"`
+		//Userfields   map[string]interface{} `json:"-"`
 	} `json:"items"`
 }
